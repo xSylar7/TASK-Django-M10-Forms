@@ -24,6 +24,8 @@ Let's make some cookies!
 7. Handle the `POST` request now inside your `view` when the form is submitted.
    - Check if the `request.method` is `POST`, and then create a new instance of `StoreItemForm` and pass `request.POST` as the first argument
    - Check if the `form` is valid, then save the form if it is and redirect to `store-item-list`
+8. Test out that the create view works.
+9. Commit and push your code.
 
 ### Update View
 
@@ -44,6 +46,8 @@ Let's make some cookies!
    - Add `action` to your `form` HTML tag equal to `{% url 'update-store-item' %}`
    - Add the `method` to your `form` HTML tag to be equal to `POST`
    - Add a `{% csrf_token %}` inside the `form` HTML tag, right before your `form` variable
+5. Test out that the update view works.
+6. Commit and push your code.
 
 ### Delete View
 
@@ -56,3 +60,5 @@ Let's make some cookies!
 2. Add your `delete` view to `urls.py` with the name `delete-store-item` (make sure to add the `item_id` variable in the path).
 3. Add an `anchor` tag to delete the store item in our `store_item_list.html` template.
    - Have the `href` set to `{% url 'delete-store-item' item_id=item.id %}`
+4. Test out that the delete works.
+5. Commit and push your code.
