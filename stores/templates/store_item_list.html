@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Items</title>
+  </head>
+  <body>
+    <main>
+      <h1>Store Items</h1>
+      {% if store_items %}
+      <section>
+        {% for item in store_items %}
+        <hr />
+        <h2>Item #{{ item.id }}</h2>
+        <p>Name: {{ item.name }}</p>
+        <h3>Description</h3>
+        <p>{{ item.description }}</p>
+        <p>Kind: {{ item.kind }}</p>
+        <p>Created At: {{ item.created_at }}</p>
+        <p>Modified At: {{ item.modified_at }}</p>
+        {% endfor %}
+      </section>
+      {% else %}
+      <p>No store items yet!</p>
+      {% endif %}
+    </main>
+  </body>
+</html>
