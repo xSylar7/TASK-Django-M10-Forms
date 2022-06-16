@@ -43,7 +43,7 @@ Let's make some cookies!
    - Render the form in the body
    - Add a `button` with `type="submit"`
 4. Wrap your `form` variable in the template with a `form` HTML tag.
-   - Add `action` to your `form` HTML tag equal to `{% url 'update-store-item' %}`
+   - Add `action` to your `form` HTML tag equal to `{% url 'update-store-item' item_id=store_item.id %}`
    - Add the `method` to your `form` HTML tag to be equal to `POST`
    - Add a `{% csrf_token %}` inside the `form` HTML tag, right before your `form` variable
 5. Test out that the update view works.
