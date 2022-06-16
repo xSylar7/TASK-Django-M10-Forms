@@ -36,7 +36,7 @@ Let's make some cookies!
    6. Check if `request.method` is equal to `POST` (right after you create `StoreItemForm` instance), and create a new instance of `StoreItemForm` if it is.
       - Pass in `request.post` as the first argument and set `instance=store_item` in the constructor
    7. Check if the `form` is valid and then save and redirect to the `flight-list` page if it is.
-2. Add our `update_store_item` to our `urls.py` with the name as `update-store-item`.
+2. Add our `update_store_item` to our `urls.py` with the name as `update-store-item` (make sure to add `item_id` in the path).
 3. Add `update_store_item.html` in the `templates` folder.
    - Render the form in the body
    - Add a `button` with `type="submit"`
