@@ -44,3 +44,15 @@ Let's make some cookies!
    - Add `action` to your `form` HTML tag equal to `{% url 'update-store-item' %}`
    - Add the `method` to your `form` HTML tag to be equal to `POST`
    - Add a `{% csrf_token %}` inside the `form` HTML tag, right before your `form` variable
+
+### Delete View
+
+1. Add a `delete_store_item` view.
+   - Accept a `item_id` in the parameters
+   - `Try` to get the `StoreItem` and assign it to a variable called `store_item`
+   - `Except` if it `does not exist` then raise an `Http404` error
+   - Delete the `store_item` using `store_item.delete()` after your `try-except` block
+   - `Redirect` to `store-item-list` at the end
+2. Add your `delete` view to `urls.py` with the name `delete-store-item` (make sure to add the `item_id` variable in the path).
+3. Add an `anchor` tag to delete the store item in our `store_item_list.html` template.
+   - Have the `href` set to `{% url 'delete-store-item' item_id=item.id %}`
