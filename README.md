@@ -24,3 +24,23 @@ Let's make some cookies!
 7. Handle the `POST` request now inside your `view` when the form is submitted.
    - Check if the `request.method` is `POST`, and then create a new instance of `StoreItemForm` and pass `request.POST` as the first argument
    - Check if the `form` is valid, then save the form if it is and redirect to `store-item-list`
+
+### Update View
+
+1. Add a `update_store_item` view.
+   1. Accept a `item_id` parameter.
+   2. Get the `StoreItem` that matches that `id` and assign it to a variable called `store_item`.
+   3. Create a new instance of `StoreItemForm` and pass in `instance=store_item` to the constructor and assign it to a vairable called `form`.
+   4. Add both `store_item` and `form` to your `context`.
+   5. Render your `request`, `update_store_item.html` template, and `context`.
+   6. Check if `request.method` is equal to `POST` (right after you create `StoreItemForm` instance), and create a new instance of `StoreItemForm` if it is.
+      - Pass in `request.post` as the first argument and set `instance=store_item` in the constructor
+   7. Check if the `form` is valid and then save and redirect to the `flight-list` page if it is.
+2. Add our `update_store_item` to our `urls.py` with the name as `update-store-item`.
+3. Add `update_store_item.html` in the `templates` folder.
+   - Render the form in the body
+   - Add a `button` with `type="submit"`
+4. Wrap your `form` variable in the template with a `form` HTML tag.
+   - Add `action` to your `form` HTML tag equal to `{% url 'update-store-item' %}`
+   - Add the `method` to your `form` HTML tag to be equal to `POST`
+   - Add a `{% csrf_token %}` inside the `form` HTML tag, right before your `form` variable
