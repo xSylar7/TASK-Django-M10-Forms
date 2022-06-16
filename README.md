@@ -62,3 +62,26 @@ Let's make some cookies!
    - Have the `href` set to `{% url 'delete-store-item' item_id=item.id %}`
 4. Test out that the delete works.
 5. Commit and push your code.
+
+### Crispy Forms
+
+1. Install `crispy-forms` by running `pip install django-crispy-forms`.
+2. Add `crispy-forms` to your list of `INSTALLED_APPS` in `bakery/setting.py`.
+3. Add the latest available bootstrap template `CRISPY_TEMPLATE_PACK = "bootstrap4"` to our `bakery/settings.py` (below `INSTALLED_APPS`).
+4. Go to our `create_store_item.html` and add `{% load crispy_forms_tags %}` to the top, then add the `crispy` pipe to our form like so: `{{ form | crispy }}`.
+5. Add the `link` to `bootstrapv4` in `<head>`, like so:
+
+   ```html
+   <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+     crossorigin="anonymous"
+   />
+   ```
+
+6. Check out your beautiful form page.
+
+#### Crispy Forms Bonus
+
+Add crispy form to the update form as well.
