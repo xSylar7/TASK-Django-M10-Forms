@@ -4,27 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
     <title>Store Items</title>
   </head>
   <body>
-    <main>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">WAM Store</a>
+        <button class="d-flex btn btn-outline-light" type="submit">
+          Add Item
+        </button>
+      </div>
+    </nav>
+    <div class="container  overflow-hidden">
       <h1>Store Items</h1>
-      {% if store_items %}
-      <section>
-        {% for item in store_items %}
-        <hr />
-        <h2>Item #{{ item.id }}</h2>
-        <p>Name: {{ item.name }}</p>
-        <h3>Description</h3>
-        <p>{{ item.description }}</p>
-        <p>Kind: {{ item.kind }}</p>
-        <p>Created At: {{ item.created_at }}</p>
-        <p>Modified At: {{ item.modified_at }}</p>
-        {% endfor %}
-      </section>
-      {% else %}
-      <p>No store items yet!</p>
-      {% endif %}
-    </main>
+      <div class="row g-3 ">
+        {% if store_items %} {% for item in store_items %}
+        <div class="card " style="width: 18rem;">
+          <div class="card-body">
+            <img
+              src={{item.image}}
+              class="card-img-top"
+              alt={{item.name}}
+            />
+            <h3 class="card-title">{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <p>Kind: {{ item.kind }}</p>
+            <p><strong>Created At:</strong> {{ item.created_at }}</p>
+            <p><strong>Modified At:</strong> {{ item.modified_at }}</p>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <p>No store items yet!</p>
+        {% endif %}
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
