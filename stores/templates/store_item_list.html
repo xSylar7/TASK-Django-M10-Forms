@@ -22,22 +22,22 @@
       </div>
     </nav>
     <div class="container  overflow-hidden">
-      <h1>Store Items</h1>
+      <h1 class="text-center">Store Items</h1>
       <div class="row g-3 ">
         {% if store_items %} {% for item in store_items %}
-        <div class="card " style="width: 18rem;">
-          <div class="card-body">
-            <img
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <img
               src={{item.image}}
               class="card-img-top"
               alt={{item.name}}
-            />
-            <h3 class="card-title">{{ item.name }}</h3>
-            <p>{{ item.description }}</p>
-            <p>Kind: {{ item.kind }}</p>
-            <p><strong>Created At:</strong> {{ item.created_at }}</p>
-            <p><strong>Modified At:</strong> {{ item.modified_at }}</p>
-          </div>
+              />
+              <h5 class="card-title">{{ item.name }}</h3>
+                <h6 class="card-subtitle mb-2 text-muted">Kind: {{ item.kind }}</h6>
+                <p class="card-text">{{ item.description }}</p> 
+              </div>
+            </div>
         </div>
         {% endfor %} {% else %}
         <p>No store items yet!</p>
