@@ -11,6 +11,7 @@ class StoreItem(models.Model):
     description = models.TextField()
     kind = models.CharField(max_length=2, choices=ItemKind.choices)
     price = models.FloatField()
+    image = models.TextField(default="")
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
