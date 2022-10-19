@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 
 from stores import models
 from .forms import StoreItemForm
+from django.http import Http404
 
 
 def get_store_items(request: HttpRequest) -> HttpResponse:
@@ -39,3 +40,11 @@ def update_store_item(request, item_id):
         "form": form,
     }
     return render(request, "update_store_item.html", context)
+
+
+def delete_store_item(request, item_id):
+    try:
+        store_item = models.StoreItem.objects.get(id=item_id).delete()
+    except store_item.DoesNotExist:
+        raise Http404("Store ID does not exist")
+    return redirect("store-item-list")
